@@ -7,7 +7,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   const handleStart = () => {
-    navigate(ROUTES.SIGNUP);
+    navigate("/name");
   };
 
   return (

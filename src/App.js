@@ -4,8 +4,7 @@ import { ROUTES } from "./constants";
 
 // Pages
 import HomePage from "./pages/HomePage";
-import SignupPage from "./pages/SignupPage";
-import LoginPage from "./pages/LoginPage";
+import NameInputPage from "./pages/NameInputPage";
 import DiscTestPage from "./pages/DiscTestPage";
 import ResultPage from "./pages/ResultPage";
 import AllResultsPage from "./pages/AllResultsPage";
@@ -15,8 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path={ROUTES.HOME} element={<HomePage />} />
-        <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
-        <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+        <Route path="/name" element={<NameInputPage />} />
         <Route path={ROUTES.TEST} element={<DiscTestPage />} />
         <Route path={ROUTES.RESULT} element={<ResultPage />} />
         <Route path={ROUTES.ALL_RESULTS} element={<AllResultsPage />} />

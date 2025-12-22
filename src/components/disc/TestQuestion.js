@@ -16,7 +16,7 @@ const QuestionTitle = styled.h1`
 `;
 
 const OptionButton = styled.button`
-  background-color: ${(props) => props.backColor};
+  background-color: ${(props) => props.backgroundColor};
   display: block;
   margin: 30px auto 0;
   font-family: "Jua", serif;
@@ -31,12 +31,12 @@ const OptionButton = styled.button`
   transition: background-color 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: ${(props) => darkenColor(props.backColor, 20)};
+    background-color: ${(props) => darkenColor(props.backgroundColor, 20)};
     transform: scale(1.05);
   }
 
   &:active {
-    background-color: ${(props) => darkenColor(props.backColor, 40)};
+    background-color: ${(props) => darkenColor(props.backgroundColor, 40)};
     transform: scale(0.95);
   }
 `;
@@ -81,7 +81,7 @@ const TestQuestion = ({
       {options.map((option, index) => (
         <OptionButton
           key={index}
-          backColor={colors[index]}
+          backgroundColor={colors[index]}
           onClick={() => onOptionClick(index)}
         >
           {option}
