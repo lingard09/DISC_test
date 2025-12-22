@@ -1,6 +1,3 @@
-// API 엔드포인트
-export { API_ENDPOINTS } from "./api";
-
 // DISC 관련
 export {
   DISC_TYPES,

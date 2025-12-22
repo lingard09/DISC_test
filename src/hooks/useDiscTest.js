@@ -4,14 +4,14 @@ import {
   updateDiscScore,
   getDiscRoute,
 } from "../utils/discUtils";
-import { DISC_QUESTIONS, DISC_TYPES } from "../constants";
+import { DISC_QUESTIONS } from "../constants";
 import { authServiceSupabase } from "../services/apiSupabase";
-import { storageService } from "../services/api";
 
 export const useDiscTest = (onComplete) => {
   const [scores, setScores] = useState([100, 100, 100, 100]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const index = findMaxIndex(scores);
@@ -30,6 +30,7 @@ export const useDiscTest = (onComplete) => {
   useEffect(() => {
     if (currentQuestionIndex === DISC_QUESTIONS.length) {
       const saveResultAndNavigate = async () => {
+        setIsLoading(true);
         try {
           const userName = localStorage.getItem("userName");
           const userTrack = localStorage.getItem("userTrack");
@@ -66,6 +67,7 @@ export const useDiscTest = (onComplete) => {
         } finally {
           // 저장 성공 여부와 관계없이 결과 페이지로 이동
           const resultRoute = getDiscRoute(maxIndex);
+          setIsLoading(false);
           onComplete(resultRoute);
         }
       };
@@ -78,6 +80,7 @@ export const useDiscTest = (onComplete) => {
     scores,
     currentQuestionIndex,
     maxIndex,
+    isLoading,
     handleOptionClick,
     handleBackClick,
   };

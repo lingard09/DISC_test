@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
-import styles from "../styles/Result.module.css";
 import { useUserInfo } from "../hooks/useUserInfo";
 import { DISC_DATA } from "../constants";
 import ResultDisplay from "../components/disc/ResultDisplay";
