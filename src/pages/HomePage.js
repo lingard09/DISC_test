@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ROUTES, TRACKS } from "../constants";
-import homeImage from "../assets/img/home1.png";
+import homeImage from "../assets/img/home.png";
+import home1Image from "../assets/img/home1.png";
 import Input from "../components/common/Input";
 import Button from "../components/common/Button";
+
+// 랜덤 이미지 선택
+const homeImages = [homeImage, home1Image];
 
 const HomeContainer = styled.div`
   box-sizing: border-box;
@@ -31,7 +35,7 @@ const BackgroundImage = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(${homeImage});
+  background: url(${(props) => props.$bgImage});
   background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
@@ -173,6 +177,11 @@ export default function HomePage() {
   const [name, setName] = useState("");
   const [track, setTrack] = useState("");
 
+  // 컴포넌트가 마운트될 때 한 번만 랜덤 이미지 선택
+  const randomImage = useMemo(() => {
+    return homeImages[Math.floor(Math.random() * homeImages.length)];
+  }, []);
+
   const handleStart = () => {
     if (!name.trim()) {
       alert("이름을 입력해주세요!");
@@ -190,8 +199,8 @@ export default function HomePage() {
 
   return (
     <HomeContainer>
-      <BackgroundImage>
-        <MobileImage src={homeImage} alt="DISC Test" />
+      <BackgroundImage $bgImage={randomImage}>
+        <MobileImage src={randomImage} alt="DISC Test" />
       </BackgroundImage>
       <StartButton onClick={() => navigate("/name")}>START</StartButton>
       <InputContainer>
