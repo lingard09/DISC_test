@@ -102,14 +102,20 @@ export const authServiceSupabase = {
   },
 
   // 간단한 DISC 결과 저장 (이름만 사용)
-  saveSimpleDiscResult: async (userName, scores, resultType) => {
-    console.log("📤 간단 저장 시도:", { userName, scores, resultType });
+  saveSimpleDiscResult: async (userName, userTrack, scores, resultType) => {
+    console.log("📤 간단 저장 시도:", {
+      userName,
+      userTrack,
+      scores,
+      resultType,
+    });
 
     const { data, error } = await supabase
       .from("disc_results")
       .insert([
         {
           user_name: userName,
+          user_track: userTrack,
           d_score: scores.d,
           i_score: scores.i,
           s_score: scores.s,

@@ -32,6 +32,7 @@ export const useDiscTest = (onComplete) => {
       const saveResultAndNavigate = async () => {
         try {
           const userName = localStorage.getItem("userName");
+          const userTrack = localStorage.getItem("userTrack");
 
           if (userName) {
             // DISC 점수 객체 생성
@@ -45,15 +46,17 @@ export const useDiscTest = (onComplete) => {
             // 결과 타입 결정 (D, I, S, C)
             const resultType = ["D", "I", "S", "C"][maxIndex];
 
-            // Supabase에 간단한 결과 저장 (이름과 함께)
+            // Supabase에 간단한 결과 저장 (이름과 트랙 함께)
             await authServiceSupabase.saveSimpleDiscResult(
               userName,
+              userTrack,
               discScores,
               resultType
             );
 
             console.log("✅ DISC 결과 저장 완료:", {
               userName,
+              userTrack,
               scores: discScores,
               resultType,
             });

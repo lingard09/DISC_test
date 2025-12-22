@@ -10,11 +10,13 @@ export const useUserInfo = () => {
   useEffect(() => {
     const fetchUserInfo = () => {
       const name = localStorage.getItem("userName");
+      const track = localStorage.getItem("userTrack");
 
       if (!name) {
         setError("이름이 없습니다.");
       } else {
         setUserName(name);
+        setUserTrack(track || "");
       }
 
       setLoading(false);
