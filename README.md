@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# DISC 업무 타입 테스트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+나의 업무 스타일을 파악하고 팀원들과 더 효과적으로 협업하는 방법을 알아보세요!
 
-## Available Scripts
+## 📋 프로젝트 소개
 
-In the project directory, you can run:
+DISC 업무 타입 테스트는 개인의 업무 스타일을 **D(주도형), I(사교형), S(안정형), C(신중형)** 4가지 유형으로 분석하는 웹 애플리케이션입니다.
 
-### `npm start`
+간단한 질문에 답변하면 자신의 업무 스타일을 파악하고, 각 유형별 특성과 협업 팁을 확인할 수 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ 주요 기능
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 🔐 **회원가입 및 로그인**: 이름, 트랙, 비밀번호로 간편 가입
+- 📝 **DISC 성격 테스트**: 7가지 질문으로 업무 성향 파악
+- 🎯 **4가지 결과 타입**:
+  - **D (Dominance)**: The Winner - 주도형, 경쟁심, 결단력
+  - **I (Influence)**: The Enthusiast - 사교형, 긍정적, 협력적
+  - **S (Steadiness)**: The Peacekeeper - 안정형, 침착, 인내심
+  - **C (Conscientiousness)**: The Analyst - 신중형, 분석적, 체계적
+- 💡 **협업 가이드**: 각 타입별 효과적인 협업 방법 제공
+- 📊 **결과 시각화**: 모달 창을 통한 상세 정보 제공
 
-### `npm test`
+## 🛠 기술 스택
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend**: React 19.0.0
+- **Routing**: React Router DOM 7.1.3
+- **Styling**: CSS Modules, Styled Components 6.1.14
+- **HTTP Client**: Axios 1.7.9
+- **State Management**: React Hooks (useState, useEffect)
+- **Cookie Management**: React Cookie 7.2.2
 
-### `npm run build`
+## 🚀 시작하기
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 설치
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 개발 서버 실행
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 앱을 확인하세요.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 프로덕션 빌드
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm run build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+최적화된 프로덕션 빌드가 `build` 폴더에 생성됩니다.
 
-## Learn More
+## 📁 프로젝트 구조
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+src/
+├── App.js              # 메인 라우팅 설정
+├── Home.js             # 홈 페이지 (시작 화면)
+├── Edong.js            # 회원가입 페이지
+├── login.js            # 로그인 페이지
+├── components/
+│   └── Banner.js       # DISC 테스트 질문 컴포넌트
+├── final.js            # 최종 결과 페이지 (4가지 타입 모두 표시)
+├── ResultType1.js      # D 타입 결과
+├── ResultType2.js      # I 타입 결과
+├── ResultType3.js      # S 타입 결과
+├── ResultType4.js      # C 타입 결과
+└── *.module.css        # 각 컴포넌트별 CSS 모듈
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎮 사용 방법
 
-### Code Splitting
+1. **START 버튼 클릭** - 테스트 시작
+2. **회원 정보 입력** - 이름, 비밀번호, 트랙(Planner/Designer/Front-end/Back-end) 선택
+3. **로그인** - 입력한 정보로 로그인
+4. **테스트 진행** - 7가지 질문에 답변 (각 질문당 하나씩 선택)
+5. **결과 확인** - 나의 DISC 타입과 협업 팁 확인
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔌 API 연동
 
-### Analyzing the Bundle Size
+백엔드 API: `https://one3th-front-api.onrender.com`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 주요 엔드포인트
 
-### Making a Progressive Web App
+- `POST /typeTest/signUp` - 회원가입
+- `POST /typeTest/login` - 로그인
+- `GET /typeTest/userInfo/{memberID}` - 사용자 정보 조회
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 👥 트랙 옵션
 
-### Advanced Configuration
+- Planner
+- Designer
+- Front-end
+- Back-end
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📝 라이선스
 
-### Deployment
+이 프로젝트는 Create React App으로 생성되었습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔗 참고 자료
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Create React App 문서](https://facebook.github.io/create-react-app/docs/getting-started)
+- [React 문서](https://reactjs.org/)
+- [DISC 이론](https://en.wikipedia.org/wiki/DISC_assessment)

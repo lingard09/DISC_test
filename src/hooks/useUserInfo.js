@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { authService, storageService } from "../services/api";
+import { authServiceSupabase as authService } from "../services/apiSupabase";
+import { storageService } from "../services/api";
 
 // 사용자 정보를 가져오는 커스텀 훅
 export const useUserInfo = () => {

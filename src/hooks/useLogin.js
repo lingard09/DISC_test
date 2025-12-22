@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { authService, storageService } from "../services/api";
+import { authServiceSupabase as authService } from "../services/apiSupabase";
+import { storageService } from "../services/api";
 import { ROUTES } from "../constants";
 
 // 로그인 로직을 처리하는 커스텀 훅
