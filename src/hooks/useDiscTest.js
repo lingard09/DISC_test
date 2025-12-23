@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   findMaxIndex,
   updateDiscScore,
@@ -12,6 +12,7 @@ export const useDiscTest = (onComplete) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const hasSaved = useRef(false); // 중복 저장 방지
 
   useEffect(() => {
     const index = findMaxIndex(scores);
@@ -28,7 +29,9 @@ export const useDiscTest = (onComplete) => {
   };
 
   useEffect(() => {
-    if (currentQuestionIndex === DISC_QUESTIONS.length) {
+    if (currentQuestionIndex === DISC_QUESTIONS.length && !hasSaved.current) {
+      hasSaved.current = true; // 중복 실행 방지
+
       const saveResultAndNavigate = async () => {
         setIsLoading(true);
         try {
@@ -54,16 +57,9 @@ export const useDiscTest = (onComplete) => {
               discScores,
               resultType
             );
-
-            console.log("✅ DISC 결과 저장 완료:", {
-              userName,
-              userTrack,
-              scores: discScores,
-              resultType,
-            });
           }
         } catch (error) {
-          console.error("❌ DISC 결과 저장 실패:", error);
+          // 에러 발생 시 무시하고 결과 페이지로 이동
         } finally {
           // 저장 성공 여부와 관계없이 결과 페이지로 이동
           const resultRoute = getDiscRoute(maxIndex);

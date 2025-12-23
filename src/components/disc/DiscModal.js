@@ -135,11 +135,15 @@ const CloseButton = styled.button`
   width: 100px;
   height: 40px;
   border: none;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s ease;
 
   &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
     background-color: darkred;
-    color: gray;
+    color: lightgray;
   }
 
   @media (max-width: 480px) {

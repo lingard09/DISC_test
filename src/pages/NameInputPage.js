@@ -11,7 +11,7 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #d1daff 0%, #ffffff 100%);
+  background: rgb(245, 245, 245);
 `;
 
 const Container = styled.div`

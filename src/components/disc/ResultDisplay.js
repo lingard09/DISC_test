@@ -9,7 +9,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+  background: rgb(245, 245, 245);
   padding: 20px;
 `;
 

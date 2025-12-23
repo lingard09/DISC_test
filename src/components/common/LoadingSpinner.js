@@ -15,7 +15,10 @@ const LoadingContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
+  min-height: ${(props) => (props.$fullScreen ? "100vh" : "400px")};
+  width: 100%;
+  background-color: ${(props) =>
+    props.$fullScreen ? "rgba(255, 255, 255, 0.95)" : "transparent"};
 `;
 
 const Spinner = styled.div`
@@ -28,11 +31,17 @@ const Spinner = styled.div`
   margin-bottom: 20px;
 `;
 
-const LoadingSpinner = ({ message = "로딩 중..." }) => {
+const Message = styled.p`
+  color: #333;
+  font-size: 16px;
+  margin: 0;
+`;
+
+const LoadingSpinner = ({ message = "로딩 중...", fullScreen = false }) => {
   return (
-    <LoadingContainer>
+    <LoadingContainer $fullScreen={fullScreen}>
       <Spinner />
-      <p>{message}</p>
+      <Message>{message}</Message>
     </LoadingContainer>
   );
 };

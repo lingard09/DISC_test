@@ -4,7 +4,27 @@ import styled from "styled-components";
 import { DISC_DATA, ROUTES } from "../constants";
 import DiscModal from "../components/disc/DiscModal";
 
-const Logo = styled.h1`
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  min-height: 100vh;
+  background: rgb(245, 245, 245);
+
+  @media (max-width: 768px) {
+    gap: 40px;
+    padding: 20px 0;
+  }
+
+  @media (max-width: 480px) {
+    gap: 30px;
+    padding: 15px 40px;
+  } 
+`;
+
+const Logo = styled.div`
   font-size: 68px;
   text-align: center;
 
@@ -14,33 +34,29 @@ const Logo = styled.h1`
 
   @media (max-width: 480px) {
     font-size: 30px;
-    margin: 20px 0;
   }
 `;
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 40px;
   max-width: 1400px;
-  margin: 0 auto;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     height: auto;
-    padding: 20px;
   }
 
   @media (max-width: 480px) {
     gap: 10px;
-    padding: 15px;
   }
 `;
 
 const DiscImage = styled.img`
   width: auto;
-  height: 400px;
+  height: 300px;
   cursor: pointer;
   transition: transform 0.3s ease;
 
@@ -55,25 +71,19 @@ const DiscImage = styled.img`
 
   @media (max-width: 480px) {
     width: 100%;
-    max-width: 300px;
-    height: auto;
+    max-width: 200px;
+    height: 200px;
   }
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 100px 0;
-  padding-bottom: 40px;
 
   @media (max-width: 768px) {
-    margin: 30px 0;
-    padding-bottom: 30px;
   }
 
   @media (max-width: 480px) {
-    margin: 20px 0;
-    padding-bottom: 20px;
   }
 `;
 
@@ -122,8 +132,8 @@ function AllResultsPage() {
   };
 
   return (
-    <div>
-      <Logo>DISC 업무 타입</Logo>
+    <Box>
+      <Logo>모든 결과 보기</Logo>
       <Container>
         {DISC_DATA.map((discData) => (
           <DiscImage
@@ -144,7 +154,7 @@ function AllResultsPage() {
       {selectedDisc && (
         <DiscModal discData={selectedDisc} onClose={handleClose} />
       )}
-    </div>
+    </Box>
   );
 }
 
