@@ -8,7 +8,7 @@ import { DISC_QUESTIONS } from "../constants/index.jsx";
 import { authServiceSupabase } from "../services/apiSupabase.jsx";
 
 export const useDiscTest = (onComplete) => {
-  const [scores, setScores] = useState([100, 100, 100, 100]);
+  const [scores, setScores] = useState([0, 0, 0, 0]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);

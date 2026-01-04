@@ -17,12 +17,8 @@ export const findMaxIndex = (array) => {
 export const updateDiscScore = (currentScores, selectedIndex) => {
   const newScores = [...currentScores];
 
-  // 선택하지 않은 항목들의 점수 감소
-  for (let i = 0; i < newScores.length; i++) {
-    if (i !== selectedIndex) {
-      newScores[i] -= 10;
-    }
-  }
+  // 선택한 항목의 점수 증가
+  newScores[selectedIndex] += 10;
 
   return newScores;
 };

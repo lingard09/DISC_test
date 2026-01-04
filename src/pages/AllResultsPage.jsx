@@ -21,7 +21,7 @@ const Box = styled.div`
   @media (max-width: 480px) {
     gap: 30px;
     padding: 15px 40px;
-  } 
+  }
 `;
 
 const Logo = styled.div`
@@ -78,12 +78,16 @@ const DiscImage = styled.img`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 
   @media (max-width: 768px) {
+    gap: 15px;
   }
 
   @media (max-width: 480px) {
+    gap: 12px;
   }
 `;
 
@@ -119,6 +123,33 @@ const HomeButton = styled.button`
   }
 `;
 
+const InfoLink = styled.a`
+  color: #666;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 3px 10px;
+  border-bottom: 2px solid #ddd;
+  /* border-radius: 8px; */
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #4caf50;
+    border-color: #4caf50;
+    /* background-color: rgba(76, 175, 80, 0.05); */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    padding: 3px 6px;
+    border-bottom: 1px solid #ddd;
+  }
+`;
+
 function AllResultsPage() {
   const navigate = useNavigate();
   const [selectedDisc, setSelectedDisc] = useState(null);
@@ -146,6 +177,13 @@ function AllResultsPage() {
       </Container>
 
       <ButtonContainer>
+        <InfoLink
+          href="https://blog.jandi.com/ko/2022/07/29/work-type-test/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          더 궁금하다면? 📖
+        </InfoLink>
         <HomeButton onClick={() => navigate(ROUTES.HOME)}>
           홈으로 돌아가기
         </HomeButton>
