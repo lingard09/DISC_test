@@ -3,9 +3,9 @@ import {
   findMaxIndex,
   updateDiscScore,
   getDiscRoute,
-} from "../utils/discUtils";
-import { DISC_QUESTIONS } from "../constants";
-import { authServiceSupabase } from "../services/apiSupabase";
+} from "../utils/discUtils.jsx";
+import { DISC_QUESTIONS } from "../constants/index.jsx";
+import { authServiceSupabase } from "../services/apiSupabase.jsx";
 
 export const useDiscTest = (onComplete) => {
   const [scores, setScores] = useState([100, 100, 100, 100]);

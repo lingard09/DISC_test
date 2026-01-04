@@ -1,4 +1,4 @@
-import { supabase } from "./supabase";
+import { supabase } from "./supabase.jsx";
 
 // Supabase 기반 API 서비스
 export const authServiceSupabase = {

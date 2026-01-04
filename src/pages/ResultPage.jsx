@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
-import { useUserInfo } from "../hooks/useUserInfo";
-import { DISC_DATA } from "../constants";
-import ResultDisplay from "../components/disc/ResultDisplay";
-import LoadingSpinner from "../components/common/LoadingSpinner";
-import ErrorMessage from "../components/common/ErrorMessage";
+import { useUserInfo } from "../hooks/useUserInfo.jsx";
+import { DISC_DATA } from "../constants/index.jsx";
+import ResultDisplay from "../components/disc/ResultDisplay.jsx";
+import LoadingSpinner from "../components/common/LoadingSpinner.jsx";
+import ErrorMessage from "../components/common/ErrorMessage.jsx";
 
 const ResultPage = () => {
   const { type } = useParams();

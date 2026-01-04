@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { ROUTES, TRACKS } from "../constants";
+import { ROUTES, TRACKS } from "../constants/index.jsx";
 import homeImage from "../assets/img/home.png";
 import home1Image from "../assets/img/home1.png";
-import Input from "../components/common/Input";
-import Button from "../components/common/Button";
+import Input from "../components/common/Input.jsx";
+import Button from "../components/common/Button.jsx";
 
 // 랜덤 이미지 선택
 const homeImages = [homeImage, home1Image];

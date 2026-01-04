@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { ROUTES } from "../../constants";
+import { ROUTES } from "../../constants/routes.jsx";
 
 const Container = styled.div`
   display: flex;

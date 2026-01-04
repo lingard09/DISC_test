@@ -27,10 +27,11 @@ DISC 업무 타입 테스트는 개인의 업무 스타일을 **D(주도형), I(
 ## 🛠 기술 스택
 
 - **Frontend**: React 19.0.0
+- **Build Tool**: Vite 6.0.7 (⚡ 빠른 HMR & 빌드)
 - **Routing**: React Router DOM 7.1.3
 - **Styling**: Styled Components 6.1.14
 - **Backend**: Supabase (데이터 저장)
-- **State Management**: React Hooks (useState, useEffect, useMemo)
+- **State Management**: React Hooks (useState, useEffect, useMemo, useRef, Suspense)
 - **Deployment**: Vercel
 
 ## 🚀 시작하기
@@ -44,7 +45,7 @@ npm install
 ### 개발 서버 실행
 
 ```bash
-npm start
+npm run dev
 ```
 
 브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 앱을 확인하세요.
@@ -57,51 +58,71 @@ npm run build
 
 최적화된 프로덕션 빌드가 `build` 폴더에 생성됩니다.
 
+### 빌드 미리보기
+
+```bash
+npm run preview
+```
+
 ## 📁 프로젝트 구조
 
 ```
-src/
-├── App.js                    # 메인 라우팅 설정
-├── index.js                  # 앱 엔트리 포인트
-├── index.css                 # 글로벌 스타일 (폰트 설정)
+DISC_test/
+├── index.html                # Vite 엔트리 포인트 (루트)
+├── vite.config.js            # Vite 설정 파일
+├── package.json              # 프로젝트 의존성
 │
-├── pages/                    # 페이지 컴포넌트
-│   ├── HomePage.js           # 홈 페이지 (시작 화면)
-│   ├── NameInputPage.js      # 이름/트랙 입력 페이지
-│   ├── DiscTestPage.js       # DISC 테스트 페이지
-│   ├── ResultPage.js         # 개인 결과 페이지
-│   └── AllResultsPage.js     # 전체 타입 결과 페이지
+├── public/                   # 정적 파일
+│   ├── logo.svg
+│   └── manifest.json
 │
-├── components/
-│   ├── common/               # 공통 컴포넌트
-│   │   ├── Button.js         # 버튼 컴포넌트
-│   │   ├── Input.js          # 입력 필드 컴포넌트
-│   │   ├── Footer.js         # 푸터 컴포넌트
-│   │   ├── LoadingSpinner.js # 로딩 스피너
-│   │   └── ErrorMessage.js   # 에러 메시지
-│   │
-│   └── disc/                 # DISC 관련 컴포넌트
-│       ├── TestQuestion.js   # 테스트 질문 컴포넌트
-│       ├── ResultDisplay.js  # 결과 표시 컴포넌트
-│       └── DiscModal.js      # DISC 상세 모달
-│
-├── hooks/                    # 커스텀 훅
-│   ├── useDiscTest.js        # 테스트 로직 훅
-│   └── useUserInfo.js        # 사용자 정보 훅
-│
-├── constants/                # 상수 정의
-│   ├── discTypes.js          # DISC 타입 데이터
-│   ├── routes.js             # 라우트 상수
-│   └── tracks.js             # 트랙 옵션
-│
-├── services/                 # API 서비스
-│   ├── supabase.js           # Supabase 클라이언트
-│   └── apiSupabase.js        # API 함수
-│
-├── utils/                    # 유틸리티 함수
-│
-└── assets/                   # 정적 자산
-    └── img/                  # 이미지 파일
+└── src/
+    ├── App.jsx               # 메인 라우팅 설정
+    ├── index.jsx             # React 앱 엔트리 포인트
+    ├── index.css             # 글로벌 스타일 (폰트 설정)
+    │
+    ├── pages/                # 페이지 컴포넌트 (.jsx)
+    │   ├── HomePage.jsx      # 홈 페이지 (시작 화면)
+    │   ├── NameInputPage.jsx # 이름/트랙 입력 페이지
+    │   ├── DiscTestPage.jsx  # DISC 테스트 페이지
+    │   ├── ResultPage.jsx    # 개인 결과 페이지
+    │   └── AllResultsPage.jsx # 전체 타입 결과 페이지
+    │
+    ├── components/
+    │   ├── common/           # 공통 컴포넌트 (.jsx)
+    │   │   ├── Button.jsx
+    │   │   ├── Input.jsx
+    │   │   ├── Footer.jsx
+    │   │   ├── LoadingSpinner.jsx
+    │   │   └── ErrorMessage.jsx
+    │   │
+    │   └── disc/             # DISC 전용 컴포넌트 (.jsx)
+    │       ├── TestQuestion.jsx
+    │       ├── ResultDisplay.jsx
+    │       └── DiscModal.jsx
+    │
+    ├── hooks/                # 커스텀 훅 (.jsx)
+    │   ├── index.jsx
+    │   ├── useDiscTest.jsx
+    │   └── useUserInfo.jsx
+    │
+    ├── constants/            # 상수 정의 (.jsx)
+    │   ├── index.jsx
+    │   ├── discTypes.jsx
+    │   ├── routes.jsx
+    │   └── tracks.jsx
+    │
+    ├── services/             # API 서비스 (.jsx)
+    │   ├── supabase.jsx
+    │   └── apiSupabase.jsx
+    │
+    ├── utils/                # 유틸리티 함수 (.jsx)
+    │   ├── colorUtils.jsx
+    │   ├── discUtils.jsx
+    │   └── validation.jsx
+    │
+    └── assets/               # 정적 자산
+        └── img/              # 이미지 파일
 ```
 
 ## 🎮 사용 방법
@@ -132,6 +153,15 @@ src/
 ## 🔗 참고 자료
 
 - [React 문서](https://react.dev/)
+- [Vite 문서](https://vitejs.dev/)
 - [Styled Components](https://styled-components.com/)
 - [Supabase](https://supabase.com/)
 - [DISC 이론](https://en.wikipedia.org/wiki/DISC_assessment)
+
+## 🎯 주요 개선 사항
+
+- ⚡ **Vite 전환**: Create React App → Vite로 마이그레이션하여 빌드 속도 대폭 개선
+- 🚀 **코드 스플리팅**: React.lazy와 Suspense를 활용한 페이지 레벨 코드 분할
+- 🔄 **중복 저장 방지**: useRef를 사용한 React Strict Mode 중복 실행 방지
+- 🎨 **일관된 파일 확장자**: 모든 React 컴포넌트를 .jsx로 통일
+- 🧹 **코드 정리**: 불필요한 console.log 제거 및 코드 최적화

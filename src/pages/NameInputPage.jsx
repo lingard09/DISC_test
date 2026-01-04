@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { ROUTES, TRACKS } from "../constants";
-import Button from "../components/common/Button";
-import Input from "../components/common/Input";
+import { ROUTES, TRACKS } from "../constants/index.jsx";
+import Button from "../components/common/Button.jsx";
+import Input from "../components/common/Input.jsx";
 
 const Box = styled.div`
   display: flex;

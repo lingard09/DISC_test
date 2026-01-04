@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { darkenColor } from "../../utils/colorUtils";
+import { darkenColor } from "../../utils/colorUtils.jsx";
 
 const QuestionContainer = styled.div`
   display: flex;

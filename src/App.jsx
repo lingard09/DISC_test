@@ -1,17 +1,16 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
-import { ROUTES } from "./constants";
-import Footer from "./components/common/Footer";
-import LoadingSpinner from "./components/common/LoadingSpinner";
+import { ROUTES } from "./constants/index.jsx";
+import Footer from "./components/common/Footer.jsx";
+import LoadingSpinner from "./components/common/LoadingSpinner.jsx";
 
 // Lazy load pages
-const HomePage = lazy(() => import("./pages/HomePage"));
-const NameInputPage = lazy(() => import("./pages/NameInputPage"));
-const DiscTestPage = lazy(() => import("./pages/DiscTestPage"));
-const ResultPage = lazy(() => import("./pages/ResultPage"));
-const AllResultsPage = lazy(() => import("./pages/AllResultsPage"));
-
+const HomePage = lazy(() => import("./pages/HomePage.jsx"));
+const NameInputPage = lazy(() => import("./pages/NameInputPage.jsx"));
+const DiscTestPage = lazy(() => import("./pages/DiscTestPage.jsx"));
+const ResultPage = lazy(() => import("./pages/ResultPage.jsx"));
+const AllResultsPage = lazy(() => import("./pages/AllResultsPage.jsx"));
 const AppContainer = styled.div`
   min-height: 100vh;
   display: flex;

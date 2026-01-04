@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useDiscTest } from "../hooks/useDiscTest";
-import { DISC_QUESTIONS, DISC_COLORS } from "../constants";
-import TestQuestion from "../components/disc/TestQuestion";
-import LoadingSpinner from "../components/common/LoadingSpinner";
+import { useDiscTest } from "../hooks/useDiscTest.jsx";
+import { DISC_QUESTIONS, DISC_COLORS } from "../constants/index.jsx";
+import TestQuestion from "../components/disc/TestQuestion.jsx";
+import LoadingSpinner from "../components/common/LoadingSpinner.jsx";
 
 const ProgressBarContainer = styled.div`
   position: fixed;

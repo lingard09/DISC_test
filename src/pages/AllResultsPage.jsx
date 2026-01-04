@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { DISC_DATA, ROUTES } from "../constants";
-import DiscModal from "../components/disc/DiscModal";
+import { DISC_DATA, ROUTES } from "../constants/index.jsx";
+import DiscModal from "../components/disc/DiscModal.jsx";
 
 const Box = styled.div`
   display: flex;
